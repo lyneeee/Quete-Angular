@@ -5,12 +5,16 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { FilmsComponent } from './films/films.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    FilmsComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
