@@ -1,2 +1,19 @@
-<h1>{{email.phrase}}</h1>
-<input [(ngModel)]="email.phrase" type="email" name="email" />
+<form (ngSubmit)="myForm.valid && onSubmit()" #myForm="ngForm">
+    <div>
+      <label for="user">User</label>
+      <input name="user" type="text" [(ngModel)]="model.user" #user="ngModel" required maxlength="25" required minlength="4">
+    </div>
+    <div *ngIf="user.errors && myForm.submitted">
+        <span *ngIf="user.required">Le champ est requis</span>
+        <span *ngIf="user.errors.maxlength">Le champ user ne doit pas dépasser 25 caractères</span>
+        <span *ngIf="user.errors.minlength">Le champ user ne doit pas dépasser 4 caractères</span>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input name="email" type="email" [(ngModel)]="model.email" #email="ngModel" required email>
+  </div>
+  <div *ngIf="email.errors && myForm.submitted">
+    <span *ngIf="email.errors.email">Le champ email est invalide</span>
+  </div>
+    <button type="submit" >Sauvegarder</button>
+  </form>

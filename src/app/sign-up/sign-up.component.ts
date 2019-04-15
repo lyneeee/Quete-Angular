@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Signup } from '../email';
+import {Order } from '../order';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,12 +9,14 @@ import { Signup } from '../email';
 
 
 export class SignUpComponent implements OnInit {
-  email : Signup =  {
-    phrase : "Laissez votre adresse email ici :"
-  };
+
+  model: Order =new Order();
+
 
   constructor() { }
-
+onSubmit(){
+  console.log(this.model);
+}
   ngOnInit() {
   }
 
